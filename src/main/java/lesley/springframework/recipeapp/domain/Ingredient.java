@@ -48,4 +48,12 @@ public class Ingredient {
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
+
+    public UnitOfMeasure getUom() {
+        return uom;
+    }
+
+    public void setUom(UnitOfMeasure uom) {
+        this.uom = uom;
+    }
 }

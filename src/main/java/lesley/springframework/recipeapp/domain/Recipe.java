@@ -20,7 +20,7 @@ public class Recipe {
     private Difficulty difficulty;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredient;
+    private Set<Ingredient> ingredients;
 
     @Lob
     private Byte[] image;
@@ -115,12 +115,12 @@ public class Recipe {
         this.note = note;
     }
 
-    public Set<Ingredient> getIngredient() {
-        return ingredient;
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
     }
 
-    public void setIngredient(Set<Ingredient> ingredient) {
-        this.ingredient = ingredient;
+    public void setIngredients(Set<Ingredient> ingredient) {
+        this.ingredients = ingredient;
     }
 
     public Difficulty getDifficulty() {
