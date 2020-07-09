@@ -3,10 +3,12 @@ package lesley.springframework.recipeapp.services.serviceImpl;
 import lesley.springframework.recipeapp.domain.Recipe;
 import lesley.springframework.recipeapp.repositories.RecipeRepository;
 import lesley.springframework.recipeapp.services.RecipeService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class RecipeServiceImpl implements RecipeService {
     private RecipeRepository recipeRepository;
 
