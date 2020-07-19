@@ -90,7 +90,8 @@ public class DataLoader implements CommandLineRunner {
         pg.setSource("");
         pg.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
         pg.setDirections("1 Cut the avocado, remove flesh: Cut the avocados in half. Remove the pit. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. ");
-        pg.getIngredients().addAll(iglist);
+        recipeRepository.save(pg);
+        iglist.forEach(pg::addIngredient);
         recipeRepository.save(pg);
 
 
@@ -155,8 +156,8 @@ public class DataLoader implements CommandLineRunner {
                 "4 Warm the tortillas: Place each tortilla on the grill or on a hot, dry skillet over medium-high heat. As soon as you see pockets of the air start to puff up in the tortilla, turn it with tongs and heat for a few seconds on the other side.\n" +
                 "Wrap warmed tortillas in a tea towel to keep them warm until serving.\n" +
                 "5 Assemble the tacos: Slice the chicken into strips. On each tortilla, place a small handful of arugula. Top with chicken slices, sliced avocado, radishes, tomatoes, and onion slices. Drizzle with the thinned sour cream. Serve with lime wedges.");
-        sgcTacos.getIngredients().addAll(iglist);
         recipeRepository.save(sgcTacos);
-
+        iglist.forEach(sgcTacos::addIngredient);
+        recipeRepository.save(sgcTacos);
     }
 }

@@ -18,6 +18,8 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public Recipe findById(Long id) {
+        System.out.println("In recipe service impl findbyid method");
+        recipeRepository.findById(id).get().getIngredients().forEach(System.out::println);
         return recipeRepository.findById(id).get();
     }
 
@@ -27,7 +29,7 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public Set<Recipe> findALl() {
+    public Set<Recipe> getRecipes() {
         Set<Recipe> recipes = new HashSet<>();
         recipeRepository.findAll().forEach(recipe -> recipes.add(recipe));
         return recipes;
