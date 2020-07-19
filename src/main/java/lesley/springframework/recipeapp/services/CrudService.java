@@ -10,5 +10,5 @@ public interface CrudService<T> {
 
     T save (T obj);
 
-    Set<T> findALl ();
+    Set<T> getRecipes();
 }

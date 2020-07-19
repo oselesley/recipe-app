@@ -2,6 +2,7 @@ package lesley.springframework.recipeapp.domain;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 @Entity
 public class Ingredient {
@@ -56,4 +57,5 @@ public class Ingredient {
     public void setUom(UnitOfMeasure uom) {
         this.uom = uom;
     }
+
 }

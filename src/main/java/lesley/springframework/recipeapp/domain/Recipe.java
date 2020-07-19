@@ -126,6 +126,12 @@ public class Recipe {
         this.ingredients = ingredient;
     }
 
+    public Ingredient addIngredient(Ingredient ingredient) {
+        ingredient.setRecipe(this);
+        getIngredients().add(ingredient);
+        return ingredient;
+    }
+
     public Difficulty getDifficulty() {
         return difficulty;
     }
