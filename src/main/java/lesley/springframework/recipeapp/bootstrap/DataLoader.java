@@ -103,7 +103,7 @@ public class DataLoader implements CommandLineRunner {
                 "\n" +
                 "You can store the guacamole in the fridge this way for up to three days.\n" +
                 "\n" +
-                "If you leave the guacamole exposed to air, it will start to brown and discolor. That browning isn’t very appetizing, but the guacamole is still good. You can either scrape off the brown parts and discard, or stir them into the rest of the guacamole.");
+                "If you leave the guacamole exposed to air, .it will start to brown and discolor. That browning isn’t very appetizing, but the guacamole is still good. You can either scrape off the brown parts and discard, or stir them into the rest of the guacamole.");
         Notes notes = new Notes();
         notes.setRecipeNotes(
                 "1 Cut the avocado, remove flesh: Cut the avocados in half. Remove the pit. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. (See How to Cut and Peel an Avocado.) Place in a bowl.\n" +
