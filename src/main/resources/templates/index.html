@@ -11,23 +11,29 @@
 <body>
     <header class="container mt-5">
         <h1>Recipe App</h1>
-        <table class="table table-responsive-lg table-hover">
-            <caption style="caption-side:top">Recipes</caption>
-            <thead class="thead-primary">
-            <tr>
-                <th>ID</th>
-                <th>Description</th>
-                <th>View</th>
-            </tr>
-            </thead>
-            <tbody th:each="recipe : ${recipes}">
-            <tr>
-                <td th:text="${recipe.getId()}">123</td>
-                <td th:text="${recipe.getDescription()}">Tasty Goodness 1</td>
-                <td><a th:href="@{/recipes/{id}(id=${recipe.getId()})}" href="#">View</a></td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="card text-white  mb-3">
+            <div class="card-header bg-primary">My recipes</div>
+            <div class="card-body">
+                <table class="table table-responsive-lg table-hover">
+                    <caption>Recipes</caption>
+                    <thead class="thead-primary">
+                    <tr>
+                        <th>ID</th>
+                        <th>Description</th>
+                        <th>View</th>
+                    </tr>
+                    </thead>
+                    <tbody th:each="recipe : ${recipes}">
+                    <tr>
+                        <td th:text="${recipe.getId()}">123</td>
+                        <td th:text="${recipe.getDescription()}">Tasty Goodness 1</td>
+                        <td><a th:href="@{/recipes/{id}(id=${recipe.getId()})}" href="#">View</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </header>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

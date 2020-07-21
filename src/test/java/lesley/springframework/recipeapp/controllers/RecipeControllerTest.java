@@ -22,6 +22,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -58,8 +59,8 @@ class RecipeControllerTest {
 
         when(recipeService.findById(anyLong())).thenReturn(recipe1);
         mockMvc.perform(get("/recipes/1")).andExpect(status().isOk())
-                .andExpect(view().name("recipe/recipe"))
-                .andExpect(model().attribute("recipe", hasSize(0)));
+                .andExpect(view().name("recipe/recipe.html"))
+                .andExpect(model().attribute("recipe", notNullValue()));
     }
 
     @Test
@@ -73,7 +74,7 @@ class RecipeControllerTest {
         ArgumentCaptor<Recipe> ac = ArgumentCaptor.forClass(Recipe.class);
 
         assertEquals("recipe/recipe.html", recipeController.getRecipe(model, 2L));
-        verify(model(), times(1)).attribute(eq("recipe"), ac.capture());
+        verify(model, times(1)).addAttribute(eq("recipe"), ac.capture());
 
         assertEquals("Omebe", ac.getValue().getDescription());
         assertEquals(2L, ac.getValue().getId());
