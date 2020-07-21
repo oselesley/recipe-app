@@ -6,49 +6,44 @@
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
           crossorigin="anonymous"
           th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
-    <title>Recipe App</title>
+    <title>Recipes</title>
 </head>
-    <body class="container">
-        <h1 class="">Recipe App</h1>
-        <br>
-        <div>
-            <div th:each="recipe : ${recipes}" class="mb-5">
-                <h3 th:text="${recipe.getDescription()}">Recipe Desc1</h3>
-                <p>
-                    <strong >Prep Time</strong>: <span th:text="${recipe.getPrepTime()}">10</span> minutes, &nbsp;
-                    <strong>Cook Time</strong>: <span th:text="${recipe.getCookTime()}">9</span> minutes, &nbsp;
-                    <strong>Servings</strong>: <span th:text="${recipe.getServings()}">10</span> servings &nbsp;
-                </p>
+<body>
+    <header class="container mt-5">
+        <h1>Recipe App</h1>
+        <table class="table table-responsive-lg table-hover">
+            <caption style="caption-side:top">Recipes</caption>
+            <thead class="thead-primary">
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>View</th>
+            </tr>
+            </thead>
+            <tbody th:each="recipe : ${recipes}">
+            <tr>
+                <td th:text="${recipe.getId()}">123</td>
+                <td th:text="${recipe.getDescription()}">Tasty Goodness 1</td>
+                <td><a th:href="@{/recipes/{id}(id=${recipe.getId()})}" href="#">View</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </header>
 
-                <ul th:each="ingredient: ${recipe.getIngredients()}" class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-action">
-                        <span th:text="${ingredient.getAmount() &lt; 1} ? '' : ${ingredient.getAmount()?.intValue()}">1</span>
-                        <span th:switch="${ingredient.amount?.intValue()}">
-                            <span th:case="'0'" th:text="''"></span>
-                            <span th:case="'1'" th:text="${ingredient.uom == null} ? '' : ${ingredient.uom?.uom}+' of'"></span>
-                            <span th:case="'2'" th:text="${ingredient.uom == null} ? '' : ${ingredient.uom?.uom}+'s of'"></span>
-                        </span>
-                        <span th:text="${ingredient.getDescription()}">salt</span>
-                    </li>
-                </ul>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+            th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
 
-            </div>
-        </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+    ></script>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossorigin="anonymous"
-                th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-                crossorigin="anonymous"
-                ></script>
-
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-                crossorigin="anonymous"
-                th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"
-        ></script>
-    </body>
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"
+            th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"
+    ></script>
+</body>
 </html>
